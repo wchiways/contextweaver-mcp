@@ -31,7 +31,7 @@ Think of it as the "Google Search" for this repository.
 Capabilities:
 1. Semantic Search: Understands "what code does" (e.g., "auth logic") via high-dimensional embeddings.
 2. Exact Match: Filters by precise symbols (e.g., class names) via FTS (Full Text Search).
-3. Zen Context: Returns code with localized context (breadcrumbs) to avoid token overflow.
+3. Localized Context: Returns code with localized context (breadcrumbs) to avoid token overflow.
 
 <RULES>
 # 1. Tool Selection (When to use)
@@ -149,7 +149,7 @@ export async function startMcpServer(): Promise<void> {
       switch (name) {
         case 'codebase-retrieval': {
           const parsed = codebaseRetrievalSchema.parse(args);
-          return await handleCodebaseRetrieval(parsed, undefined, onProgress);
+          return await handleCodebaseRetrieval(parsed, onProgress);
         }
         default:
           throw new Error(`Unknown tool: ${name}`);

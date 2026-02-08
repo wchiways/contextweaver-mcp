@@ -6,3 +6,6 @@ dist
 .claude
 .ace-tool/
 .snow
+test-*
+.codex
+.pnpm-store
