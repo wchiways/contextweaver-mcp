@@ -45,6 +45,7 @@ export type CodebaseRetrievalInput = z.infer<typeof codebaseRetrievalSchema>;
 // ===========================================
 
 const BASE_DIR = path.join(os.homedir(), '.contextweaver');
+const INDEX_LOCK_TIMEOUT_MS = 10 * 60 * 1000;
 
 /**
  * 确保默认 .env 文件存在
@@ -149,7 +150,7 @@ async function ensureIndexed(
       },
       '索引完成',
     );
-  });
+  }, INDEX_LOCK_TIMEOUT_MS);
 }
 
 // 工具处理函数
